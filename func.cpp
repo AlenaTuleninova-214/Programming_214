@@ -5,32 +5,32 @@
 
 using namespace std;
 
-// 1. Проверки точек
+// 1. ДЋД‘Г®ГўДєД‘Д™ДЌ Е€Г®Г·ДєД™
 string check_on_circle(Circle circle, Dot dot) {
     float distance = sqrt((dot.x - circle.dot.x) * (dot.x - circle.dot.x) +
         (dot.y - circle.dot.y) * (dot.y - circle.dot.y));
     if (fabs(distance - circle.rad) < 0.0001f)
-        return "Точка лежит на окружности";
+        return "Е‡Г®Г·Д™Е• Г«ДєД‡ДЌЕ€ Г­Е• Г®Д™Д‘ГіД‡Г­Г®Е„Е€ДЌ";
     else
-        return "Точка не лежит на окружности";
+        return "Е‡Г®Г·Д™Е• Г­Дє Г«ДєД‡ДЌЕ€ Г­Е• Г®Д™Д‘ГіД‡Г­Г®Е„Е€ДЌ";
 }
 
 string check_in_circle(Circle circle, Dot dot) {
     float distance = sqrt((dot.x - circle.dot.x) * (dot.x - circle.dot.x) +
         (dot.y - circle.dot.y) * (dot.y - circle.dot.y));
     if (distance <= circle.rad + 0.0001f)
-        return "Точка принадлежит кругу";
+        return "Е‡Г®Г·Д™Е• ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™Д‘ГіДѓГі";
     else
-        return "Точка не принадлежит кругу";
+        return "Е‡Г®Г·Д™Е• Г­Дє ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™Д‘ГіДѓГі";
 }
 
 string check_inside_circle(Circle circle, Dot dot) {
     float distance = sqrt((dot.x - circle.dot.x) * (dot.x - circle.dot.x) +
         (dot.y - circle.dot.y) * (dot.y - circle.dot.y));
     if (distance < circle.rad - 0.0001f)
-        return "Точка строго принадлежит кругу";
+        return "Е‡Г®Г·Д™Е• Е„Е€Д‘Г®ДѓГ® ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™Д‘ГіДѓГі";
     else
-        return "Точка не строго принадлежит кругу";
+        return "Е‡Г®Г·Д™Е• Г­Дє Е„Е€Д‘Г®ДѓГ® ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™Д‘ГіДѓГі";
 }
 
 string check_on_square(Square square, Dot dot) {
@@ -45,9 +45,9 @@ string check_on_square(Square square, Dot dot) {
         (dot.x >= left - 0.0001f) && (dot.x <= right + 0.0001f);
 
     if (on_vertical || on_horizontal)
-        return "Точка лежит на границе квадрата";
+        return "Е‡Г®Г·Д™Е• Г«ДєД‡ДЌЕ€ Г­Е• ДѓД‘Е•Г­ДЌГ¶Дє Д™ГўЕ•Г¤Д‘Е•Е€Е•";
     else
-        return "Точка лежит не на границе квадрата";
+        return "Е‡Г®Г·Д™Е• Г«ДєД‡ДЌЕ€ Г­Дє Г­Е• ДѓД‘Е•Г­ДЌГ¶Дє Д™ГўЕ•Г¤Д‘Е•Е€Е•";
 }
 
 string check_in_square(Square square, Dot dot) {
@@ -58,9 +58,9 @@ string check_in_square(Square square, Dot dot) {
 
     if (dot.x >= left - 0.0001f && dot.x <= right + 0.0001f &&
         dot.y >= bottom - 0.0001f && dot.y <= top + 0.0001f)
-        return "Точка принадлежит квадрату";
+        return "Е‡Г®Г·Д™Е• ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™ГўЕ•Г¤Д‘Е•Е€Гі";
     else
-        return "Точка не принадлежит квадрату";
+        return "Е‡Г®Г·Д™Е• Г­Дє ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™ГўЕ•Г¤Д‘Е•Е€Гі";
 }
 
 string check_inside_square(Square square, Dot dot) {
@@ -71,12 +71,12 @@ string check_inside_square(Square square, Dot dot) {
 
     if (dot.x > left + 0.0001f && dot.x < right - 0.0001f &&
         dot.y > bottom + 0.0001f && dot.y < top - 0.0001f)
-        return "Точка строго принадлежит квадрату";
+        return "Е‡Г®Г·Д™Е• Е„Е€Д‘Г®ДѓГ® ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™ГўЕ•Г¤Д‘Е•Е€Гі";
     else
-        return "Точка не строго принадлежит квадрату";
+        return "Е‡Г®Г·Д™Е• Г­Дє Е„Е€Д‘Г®ДѓГ® ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™ГўЕ•Г¤Д‘Е•Е€Гі";
 }
 
-// 2. Проверки пересечений
+// 2. ДЋД‘Г®ГўДєД‘Д™ДЌ ДЏДєД‘ДєЕ„ДєГ·ДєГ­ДЌГ©
 string check_squares_intersection(Square sq1, Square sq2) {
     float left1 = sq1.dot.x;
     float right1 = sq1.dot.x + sq1.side;
@@ -92,22 +92,21 @@ string check_squares_intersection(Square sq1, Square sq2) {
     bool y_overlap = (bottom1 <= top2 + 0.0001f) && (top1 >= bottom2 - 0.0001f);
 
     if (x_overlap && y_overlap)
-        return "Квадраты пересекаются";
+        return "ДГўЕ•Г¤Д‘Е•Е€Е± ДЏДєД‘ДєЕ„ДєД™Е•ЕЈЕ€Е„Л™";
     else
-        return "Квадраты не пересекаются";
+        return "ДГўЕ•Г¤Д‘Е•Е€Е± Г­Дє ДЏДєД‘ДєЕ„ДєД™Е•ЕЈЕ€Е„Л™";
 }
 
-// Функция проверки пересечения двух кругов - ДОБАВЬТЕ В КОНЕЦ ФАЙЛА
 string check_circles_intersection(Circle c1, Circle c2) {
     float dx = c2.dot.x - c1.dot.x;
     float dy = c2.dot.y - c1.dot.y;
     float distance = sqrt(dx * dx + dy * dy);
 
     if (distance <= c1.rad + c2.rad + 0.0001f) {
-        return "Круги пересекаются";
+        return "ДД‘ГіДѓДЌ ДЏДєД‘ДєЕ„ДєД™Е•ЕЈЕ€Е„Л™";
     }
     else {
-        return "Круги не пересекаются";
+        return "ДД‘ГіДѓДЌ Г­Дє ДЏДєД‘ДєЕ„ДєД™Е•ЕЈЕ€Е„Л™";
     }
 }
 
@@ -119,12 +118,12 @@ string check_circle_square_intersection(Circle circle, Square square) {
         (circle.dot.y - closest_y) * (circle.dot.y - closest_y));
 
     if (distance <= circle.rad + 0.0001f)
-        return "Круг и квадрат пересекаются";
+        return "ДД‘ГіДѓ ДЌ Д™ГўЕ•Г¤Д‘Е•Е€ ДЏДєД‘ДєЕ„ДєД™Е•ЕЈЕ€Е„Л™";
     else
-        return "Круг и квадрат не пересекаются";
+        return "ДД‘ГіДѓ ДЌ Д™ГўЕ•Г¤Д‘Е•Е€ Г­Дє ДЏДєД‘ДєЕ„ДєД™Е•ЕЈЕ€Е„Л™";
 }
 
-// 3. Проверки принадлежности фигур
+// 3. ДЋД‘Г®ГўДєД‘Д™ДЌ ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡Г­Г®Е„Е€ДЌ ГґДЌДѓГіД‘
 string check_square_inside_square(Square inner, Square outer) {
     float inner_left = inner.dot.x;
     float inner_right = inner.dot.x + inner.side;
@@ -138,9 +137,9 @@ string check_square_inside_square(Square inner, Square outer) {
 
     if (inner_left >= outer_left - 0.0001f && inner_right <= outer_right + 0.0001f &&
         inner_top <= outer_top + 0.0001f && inner_bottom >= outer_bottom - 0.0001f)
-        return "Первый квадрат внутри второго";
+        return "ДЋДєД‘ГўЕ±Г© Д™ГўЕ•Г¤Д‘Е•Е€ ГўГ­ГіЕ€Д‘ДЌ ГўЕ€Г®Д‘Г®ДѓГ®";
     else
-        return "Первый квадрат не внутри второго";
+        return "ДЋДєД‘ГўЕ±Г© Д™ГўЕ•Г¤Д‘Е•Е€ Г­Дє ГўГ­ГіЕ€Д‘ДЌ ГўЕ€Г®Д‘Г®ДѓГ®";
 }
 
 string check_circle_inside_circle(Circle inner, Circle outer) {
@@ -148,9 +147,9 @@ string check_circle_inside_circle(Circle inner, Circle outer) {
         (outer.dot.y - inner.dot.y) * (outer.dot.y - inner.dot.y));
 
     if (distance + inner.rad <= outer.rad + 0.0001f)
-        return "Первый круг внутри второго";
+        return "ДЋДєД‘ГўЕ±Г© Д™Д‘ГіДѓ ГўГ­ГіЕ€Д‘ДЌ ГўЕ€Г®Д‘Г®ДѓГ®";
     else
-        return "Первый круг не внутри второго";
+        return "ДЋДєД‘ГўЕ±Г© Д™Д‘ГіДѓ Г­Дє ГўГ­ГіЕ€Д‘ДЌ ГўЕ€Г®Д‘Г®ДѓГ®";
 }
 
 string check_square_inside_circle(Square square, Circle circle) {
@@ -165,9 +164,9 @@ string check_square_inside_circle(Square square, Circle circle) {
         float distance = sqrt((corners[i].x - circle.dot.x) * (corners[i].x - circle.dot.x) +
             (corners[i].y - circle.dot.y) * (corners[i].y - circle.dot.y));
         if (distance > circle.rad + 0.0001f)
-            return "Квадрат не внутри круга";
+            return "ДГўЕ•Г¤Д‘Е•Е€ Г­Дє ГўГ­ГіЕ€Д‘ДЌ Д™Д‘ГіДѓЕ•";
     }
-    return "Квадрат внутри круга";
+    return "ДГўЕ•Г¤Д‘Е•Е€ ГўГ­ГіЕ€Д‘ДЌ Д™Д‘ГіДѓЕ•";
 }
 
 string check_circle_inside_square(Circle circle, Square square) {
@@ -180,25 +179,26 @@ string check_circle_inside_square(Circle circle, Square square) {
         (circle.dot.x + circle.rad <= right + 0.0001f) &&
         (circle.dot.y + circle.rad <= top + 0.0001f) &&
         (circle.dot.y - circle.rad >= bottom - 0.0001f))
-        return "Круг внутри квадрата";
+        return "ДД‘ГіДѓ ГўГ­ГіЕ€Д‘ДЌ Д™ГўЕ•Г¤Д‘Е•Е€Е•";
     else
-        return "Круг не внутри квадрата";
+        return "ДД‘ГіДѓ Г­Дє ГўГ­ГіЕ€Д‘ДЌ Д™ГўЕ•Г¤Д‘Е•Е€Е•";
 }
 
-// 4. Комбинированные проверки
+// 4. ДГ®Д›ГЎДЌГ­ДЌД‘Г®ГўЕ•Г­Г­Е±Дє ДЏД‘Г®ГўДєД‘Д™ДЌ
 string check_on_figure(Circle circle, Dot dot, Square square) {
-    if (check_on_circle(circle, dot) == "Точка лежит на окружности" ||
-        check_on_square(square, dot) == "Точка лежит на границе квадрата")
-        return "Точка строго на границе фигуры";
+    if (check_on_circle(circle, dot) == "Е‡Г®Г·Д™Е• Г«ДєД‡ДЌЕ€ Г­Е• Г®Д™Д‘ГіД‡Г­Г®Е„Е€ДЌ" ||
+        check_on_square(square, dot) == "Е‡Г®Г·Д™Е• Г«ДєД‡ДЌЕ€ Г­Е• ДѓД‘Е•Г­ДЌГ¶Дє Д™ГўЕ•Г¤Д‘Е•Е€Е•")
+        return "Е‡Г®Г·Д™Е• Е„Е€Д‘Г®ДѓГ® Г­Е• ДѓД‘Е•Г­ДЌГ¶Дє ГґДЌДѓГіД‘Е±";
     else
-        return "Точка не на границе фигуры";
+        return "Е‡Г®Г·Д™Е• Г­Дє Г­Е• ДѓД‘Е•Г­ДЌГ¶Дє ГґДЌДѓГіД‘Е±";
 }
 
 string check_in_figure(Circle circle, Dot dot, Square square) {
-    if (check_on_figure(circle, dot, square) == "Точка не на границе фигуры" &&
-        (check_inside_square(square, dot) == "Точка строго принадлежит квадрату" ||
-            check_inside_circle(circle, dot) == "Точка строго принадлежит кругу"))
-        return "Точка строго внутри фигуры";
+    if (check_on_figure(circle, dot, square) == "Е‡Г®Г·Д™Е• Г­Дє Г­Е• ДѓД‘Е•Г­ДЌГ¶Дє ГґДЌДѓГіД‘Е±" &&
+        (check_inside_square(square, dot) == "Е‡Г®Г·Д™Е• Е„Е€Д‘Г®ДѓГ® ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™ГўЕ•Г¤Д‘Е•Е€Гі" ||
+            check_inside_circle(circle, dot) == "Е‡Г®Г·Д™Е• Е„Е€Д‘Г®ДѓГ® ДЏД‘ДЌГ­Е•Г¤Г«ДєД‡ДЌЕ€ Д™Д‘ГіДѓГі"))
+        return "Е‡Г®Г·Д™Е• Е„Е€Д‘Г®ДѓГ® ГўГ­ГіЕ€Д‘ДЌ ГґДЌДѓГіД‘Е±";
     else
-        return "Точка не строго внутри фигуры";
+        return "Е‡Г®Г·Д™Е• Г­Дє Е„Е€Д‘Г®ДѓГ® ГўГ­ГіЕ€Д‘ДЌ ГґДЌДѓГіД‘Е±";
+
 }
